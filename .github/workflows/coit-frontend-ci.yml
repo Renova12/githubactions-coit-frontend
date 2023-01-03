@@ -16,7 +16,7 @@ on:
 env:
   sonarscannerversion: 4.7.0.2747-linux
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-2    # Add your cluster name here.
+  GKE_CLUSTER: demo-githubactions    # Add your cluster name here.
   GKE_ZONE: us-central1-c  # Add your cluster zone here.
 
 jobs:
@@ -74,7 +74,7 @@ jobs:
           service_account_key: ${{ secrets.GKE_SA_KEY }}
           project_id: ${{ secrets.GKE_PROJECT }}
 
-      - uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
+      - uses: google-github-actions/get-gke-credentials@10020276d1e13c1c4a5e65cc98a6f1f3d1a076f6
         with:
           cluster_name: ${{ env.GKE_CLUSTER }}
           location: ${{ env.GKE_ZONE }}
