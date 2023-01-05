@@ -91,10 +91,17 @@ jobs:
           npm audit | tail >log.txt
           cat log.txt | grep -i "vulnerabilities"
 
+#       - name: Check the sonarqube report here
+#         run: | 
+#           SONAR_URL=`kubectl get svc sonarqube-sonarqube --output jsonpath='{.status.loadBalancer.ingress[0].ip}' -n sonarqube`
+#           echo "The SonarQube Reports are available at $SONAR_URL"
+
+#Bolaji updated this line from Basil updated Github page to use same sonarQube I setup for DevSecOps project instead of long process of installing
+#another SonarQube for the GitHub Action Project
       - name: Check the sonarqube report here
         run: | 
-          SONAR_URL=`kubectl get svc sonarqube-sonarqube --output jsonpath='{.status.loadBalancer.ingress[0].ip}' -n sonarqube`
-          echo "The SonarQube Reports are available at $SONAR_URL"
+          echo "The SonarQube Reports are available at http://34.170.130.152:9000/dashboard?id=coit-frontend"
+########################END of UPDATE#####################
 
       - name: Wait for 60 seconds and get the preview of the applicaton
         run: | 
