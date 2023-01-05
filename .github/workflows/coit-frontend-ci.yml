@@ -91,10 +91,10 @@ jobs:
           npm audit | tail >log.txt
           cat log.txt | grep -i "vulnerabilities"
 
-      - name: Check the sonarqube report here
-        run: | 
-          SONAR_URL=`kubectl get svc sonarqube-sonarqube --output jsonpath='{.status.loadBalancer.ingress[0].ip}' -n sonarqube`
-          echo "The SonarQube Reports are available at $SONAR_URL"
+#       - name: Check the sonarqube report here
+#         run: | 
+#           SONAR_URL=`kubectl get svc sonarqube-sonarqube --output jsonpath='{.status.loadBalancer.ingress[0].ip}' -n sonarqube`
+#           echo "The SonarQube Reports are available at $SONAR_URL"
 
       - name: Wait for 60 seconds and get the preview of the applicaton
         run: | 
